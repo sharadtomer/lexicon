@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {},
+    "outDir": "../../dist/parsers"
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "**/*.d.ts"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    {
+      "path": "./src/base",
+    },
+    {
+      "path": "./src/parsers",
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+  },
+  "include": [
+    "src/*.ts"
+  ]
+}
