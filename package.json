@@ -3,21 +3,19 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "ts-node tools/build.ts",
+    "push": "ts-node tools/publish.ts",
     "build:dev": "tsc -b",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "ts-node tools/clean.ts"
   },
   "author": "sharad <sharadtomer@outlook.com>",
   "license": "MIT",
-  "description": "",
+  "description": "Parser bits to create your next awesome parser",
   "devDependencies": {
+    "@types/node": "^22.7.7",
     "typescript": "^5.6.3"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "files": [
-    "dist",
-    "package.json",
-    "readme.md"
-  ]
+  }
 }
