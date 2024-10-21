@@ -1,4 +1,4 @@
-import { IParserState, StateUtils } from "parser-state";
+import { IParserState, StateUtils } from "./parser-state";
 
 /**
  * Parser function that transforms parser state to some other state

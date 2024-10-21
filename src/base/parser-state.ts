@@ -51,6 +51,7 @@ export class StateUtils {
   static withError(state: IParserState, err: any): IParserState {
     return {
       ...state,
+      isError: true,
       err
     };
   }
