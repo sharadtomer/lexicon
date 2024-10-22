@@ -23,7 +23,7 @@ child_process.execSync(
 
 // publish
 child_process.execSync(
-  `npm publish --dry-run`, 
+  `npm publish`, 
   {
     cwd: path.join(projectRoot, 'dist'), 
     stdio:[0,1,2]

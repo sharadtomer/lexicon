@@ -3,7 +3,7 @@ import { Parser, StateUtils, IParserState } from "../src";
 describe("Base parser functionality", () => {
   test("can create simple parser", () => {
     const parser = new Parser((state) => {
-      const inp = state.inputString.slice(0);
+      const inp = state.inputString.slice(state.index);
 
       if(inp.length == 0){
         return StateUtils.withError(state, `Unexpected end of input`);
