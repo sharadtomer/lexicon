@@ -68,7 +68,7 @@ export function Sequence(parsers: IParser[]): IParser {
     for(let p of parsers){
       nextState = p.parse(nextState);
       if(nextState.isError){
-        return nextState;
+        return StateUtils.withError(state, nextState.err);
       }
 
       res.push(nextState.result);
@@ -89,9 +89,8 @@ export function Choice(parsers: IParser[]): IParser {
       return state;
     }
 
-    let nextState = state;
     for(let p of parsers){
-      nextState = p.parse(nextState);
+      let nextState = p.parse(state);
       // found a match
       if(!nextState.isError){
         return nextState;
@@ -133,7 +132,8 @@ export function SeptBy(parser: IParser, seperator: IParser): IParser {
       if(nextState.isError){
         break;
       }
-      res.push(state.result);
+      res.push(nextState.result);
+      state = nextState;
 
       // match separator
       nextState = seperator.parse(nextState);

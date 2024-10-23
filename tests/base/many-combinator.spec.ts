@@ -1,5 +1,5 @@
-import { Parser, StateUtils, IParserState } from "../src";
-import { Many, Many1 } from "../src/base/combinators";
+import { Parser, StateUtils, IParserState } from "../../src";
+import { Many, Many1 } from "../../src/base/combinators";
 
 const aaParser = new Parser((state) => {
   const inp = state.inputString.slice(state.index);
