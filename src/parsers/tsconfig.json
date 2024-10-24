@@ -4,8 +4,13 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {},
-    "outDir": "../../dist/parsers"
+    "outDir": "../../dist/parsers",
   },
+  "references": [
+    {
+      "path": "../base"
+    }
+  ],
   "include": [
     "**/*.ts"
   ],
