@@ -113,7 +113,7 @@ export function Between(parser: IParser, seperator: IParser): IParser {
 
 /**
  * Combinator function that returns a parser which matches the provided parser multiple time
- * with ecach match separated by the provided separator function
+ * with each match separated by the provided separator parser
  * @param parser parser to match
  * @param seperator parser to be used as separator between matches
  * @returns parser matching the given parser multiple times with each match separated by provided parser

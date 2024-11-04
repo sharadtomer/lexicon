@@ -68,7 +68,7 @@ export const digits = Regex('\\d+');
 export const word = Regex('\\w+');
 
 /**
- * mathes common variable name, starts with _ or alphabet followed by alphabet, digit or understand
+ * mathes common variable name, starts with _ or alphabet followed by alphabet, digit or underscore
  * note that this does not match '$' char like in js variable names
  * regex: [a-zA-Z_]w*
  */
