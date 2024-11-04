@@ -1,1 +1,2 @@
-export * as strings from './strings';
+export * as StringParsers from './strings';
+export * as NumberParsers from './numbers';
