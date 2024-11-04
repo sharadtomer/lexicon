@@ -11,6 +11,7 @@
   },
   "author": "sharad <sharadtomer@outlook.com>",
   "license": "MIT",
+  "homepage": "https://github.com/sharadtomer/lexicon",
   "description": "Parser bits to create your next awesome parser",
   "devDependencies": {
     "@types/jest": "^29.5.13",
@@ -21,5 +22,13 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "keywords": [
+    "lexicons",
+    "parse",
+    "parser",
+    "parsercombinators",
+    "combinators",
+    "typescript"
+  ]
 }
