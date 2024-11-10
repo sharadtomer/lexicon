@@ -91,6 +91,8 @@ var res = boolParser.run('true');
 - Choice: factory function that returns a parser which matches any of the provided parsers
 - Between: factory function that returns a parser which matches the provided parser surrounded by seperator parser
 - SeptBy: factory function that returns a parser which matches the provided parser multiple time with each match separated by the provided separator parser
+- Lazy: lazy evaluates a parser type, can be used in cases of circular dependency between parsers
+- Contextual: chain multiple parsers in sequential manner without using a bunch of chain statements
 
 ## StringParsers
 - Regex: factory function which returns a parser that parses the provided input string as regex.

@@ -1,4 +1,4 @@
-import { StateUtils } from "./parser-state";
+import { IParserState, StateUtils } from "./parser-state";
 import { IParser, Parser } from "./parser";
 
 /**
@@ -146,3 +146,39 @@ export function SeptBy(parser: IParser, seperator: IParser): IParser {
   })
 }
 
+/**
+ * Lazily evaluate a parser.
+ * Takes a function as argument which returns the actual praser.
+ * Function is called to retrieve the parser when it is needed later at the time of parsing
+ * @param lazyFn function that returns the actual parser
+ * @returns a parser that can be used as lazy parser
+ */
+export function Lazy(lazyFn: () => IParser): IParser{
+  return new Parser((state) => {
+    const p = lazyFn();
+    return p.parse(state);
+  });
+}
+
+/**
+ * Chain multiple parsers in sequential manner without using a bunch of chain statements
+ * @param generatorFn generator function that yields the next parser and returns the final result of parser
+ */
+export function Contextual(generatorFn: () => Generator<IParser, any, any>): IParser {
+  return Parser.done().chain(() => {
+    const it = generatorFn();
+
+    const step = (lastResult?) => {
+      const itRes = it.next(lastResult);
+      if(itRes.done){
+        return Parser.done(itRes.value);
+      }
+
+      const nextParser = itRes.value;
+      
+      return nextParser.chain(step);
+    }
+
+    return step();
+  });
+}

@@ -165,4 +165,15 @@ export class Parser {
     });
   }
 
+
+  static done(value?: any){
+    return new Parser((state) => {
+      if(value === undefined){
+        return state;
+      }else{
+        return StateUtils.withResult(state, value);
+      }
+    });
+  }
+
 }
