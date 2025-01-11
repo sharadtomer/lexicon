@@ -8,12 +8,13 @@ export function Regex(rgxStr: string, flags: string = ''): IParser{
   if(!rgxStr.startsWith('^')){
     rgxStr = '^' + rgxStr;
   }
-  const rgx = new RegExp(rgxStr, flags);
-
+  
   return new Parser((state: IParserState) => {
+    
     if(state.isError){
       return state;
     }
+    const rgx = new RegExp(rgxStr, flags);
 
     const inp = state.inputString.slice(state.index);
     if(inp.length == 0){
