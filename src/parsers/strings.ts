@@ -4,11 +4,11 @@ import { IParser, IParserState, Parser, StateUtils } from './../base';
  * Function that returns a parser which matches the provided regex
  * @param rgxStr regex string to match
  */
-export function Regex(rgxStr: string): IParser{
+export function Regex(rgxStr: string, flags: string = ''): IParser{
   if(!rgxStr.startsWith('^')){
     rgxStr = '^' + rgxStr;
   }
-  const rgx = new RegExp(rgxStr);
+  const rgx = new RegExp(rgxStr, flags);
 
   return new Parser((state: IParserState) => {
     if(state.isError){
@@ -30,6 +30,28 @@ export function Regex(rgxStr: string): IParser{
     }
   });
 }
+
+/**
+ * Function that returns a parser which matches the passed string
+ * @param str imput string to match
+ */
+export function Str(str: string): IParser{
+  return new Parser((state) => {
+    const inp = state.inputString.slice(state.index);
+
+    if (inp.length == 0) {
+      return StateUtils.withError(state, `Unexpected end of input`);
+    }
+
+    if (inp.startsWith(str)) {
+      return StateUtils.updateResult(state, str, state.index + str.length);
+    } else {
+      return StateUtils.withError(state,
+        `Parse Error: expected '${str}' but got ${inp.substring(0, str.length)} at index ${state.index}`
+      );
+    }
+  });
+};
 
 /**
  * char parser, matches any single character
