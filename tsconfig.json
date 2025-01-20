@@ -1,12 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
   "references": [
-    {
-      "path": "./src/base",
-    },
-    {
-      "path": "./src/parsers",
-    }
   ],
   "compilerOptions": {
     "outDir": "./dist",
@@ -14,6 +8,6 @@
     "types": ["node"]
   },
   "include": [
-    "src/*.ts"
+    "src/**/*.ts"
   ]
 }

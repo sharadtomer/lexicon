@@ -1,4 +1,6 @@
-import { IParser, IParserState, Parser, StateUtils } from './../base';
+import { IParser, Parser } from "../base/parser";
+import { IParserState, StateUtils } from "../base/parser-state";
+
 
 /**
  * Function that returns a parser which matches the provided regex

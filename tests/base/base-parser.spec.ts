@@ -1,4 +1,5 @@
-import { Parser, StateUtils, IParserState } from "../../src";
+import { Parser } from "../../src/base/parser";
+import { StateUtils } from "../../src/base/parser-state";
 
 describe("Base parser functionality", () => {
   test("can create simple parser", () => {
