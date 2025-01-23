@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "ts-node tools/build.ts",
+    "build:prod": "ts-node tools/build.ts prod",
     "push": "ts-node tools/publish.ts",
-    "build:dev": "tsc -b",
     "clean": "ts-node tools/clean.ts",
     "test": "jest"
   },

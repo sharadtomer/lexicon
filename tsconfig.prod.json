@@ -3,7 +3,7 @@
   "references": [
   ],
   "compilerOptions": {
-    "outDir": "./npm-local/node_modules/@sharadt/lexicons",
+    "outDir": "./dist",
     "rootDir": "./src",
     "types": ["node"]
   },
