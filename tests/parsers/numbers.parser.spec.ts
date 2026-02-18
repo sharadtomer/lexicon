@@ -1,3 +1,4 @@
+import { describe, test, expect } from "bun:test";
 import NumberParsers from "../../src/parsers/numbers";
 
 // integer parser functonality

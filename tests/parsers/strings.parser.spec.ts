@@ -1,3 +1,4 @@
+import { describe, test, expect } from "bun:test";
 import StringParsers from "../../src/parsers/strings";
 
 // regex parser functonality

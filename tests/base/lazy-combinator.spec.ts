@@ -1,3 +1,4 @@
+import { describe, test, expect } from "bun:test";
 import { Lazy } from "../../src/base/combinators";
 import { Parser } from "../../src/base/parser";
 import { StateUtils } from "../../src/base/parser-state";
