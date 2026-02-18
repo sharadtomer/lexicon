@@ -4,3 +4,6 @@ npm_local
 dist
 npm-local
 
+bun.lock
+package-lock.json
+yarn.lock
