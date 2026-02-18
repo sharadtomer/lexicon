@@ -4,9 +4,9 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && cp package.json readme.md dist/",
-    "clean": "rm -rf dist",
-    "release": "bun run clean && bun run build && cd dist && npm publish",
+    "build": "tsc -p tsconfig.build.json && bun scripts/tasks.ts copy-assets",
+    "clean": "bun scripts/tasks.ts clean",
+    "release": "bun run clean && bun run build && bun scripts/tasks.ts publish",
     "test": "bun test"
   },
   "author": "sharad <sharadtomer@outlook.com>",
