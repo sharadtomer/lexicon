@@ -1,16 +1,20 @@
-import { rmSync, copyFileSync } from "fs";
+import { rmSync, copyFileSync, mkdirSync } from "fs";
 import { execSync } from "child_process";
-import { resolve } from "path";
+import { resolve, join } from "path";
 
 const cmd = process.argv[2];
+const isDev = process.argv.includes("--dev");
+const outDir = isDev ? "npm-local/node_modules/@sharadt/lexicons" : "dist";
 
 switch (cmd) {
   case "clean":
     rmSync("dist", { recursive: true, force: true });
+    rmSync("npm-local", { recursive: true, force: true });
     break;
   case "copy-assets":
-    copyFileSync("package.json", "dist/package.json");
-    copyFileSync("readme.md", "dist/readme.md");
+    mkdirSync(outDir, { recursive: true });
+    copyFileSync("package.json", join(outDir, "package.json"));
+    copyFileSync("readme.md", join(outDir, "readme.md"));
     break;
   case "publish":
     execSync("npm publish", {

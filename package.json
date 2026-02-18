@@ -4,6 +4,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "dev": "tsc -p tsconfig.dev.json && bun scripts/tasks.ts copy-assets --dev",
     "build": "tsc -p tsconfig.build.json && bun scripts/tasks.ts copy-assets",
     "clean": "bun scripts/tasks.ts clean",
     "release": "bun run clean && bun run build && bun scripts/tasks.ts publish",
